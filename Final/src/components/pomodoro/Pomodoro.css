@@ -1,0 +1,96 @@
+.pomodoro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    background-color: rgb(186, 73, 73);
+    color: white;
+    height: 100%;
+  }
+  .pomodoro.break{
+    background-color: rgb(56, 133, 138);
+  }
+  h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 3rem;
+  }
+  
+  .time-now {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .message {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .timer {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    color: rgb(186, 73, 73);
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
+    width: 120px;
+  }
+  button:active{
+    box-shadow: 0 9px #999;
+    transform: translateY(4px);
+  }
+  .buttons.work1{
+    color: rgb(186, 73, 73);
+  }
+  .buttons.break1{
+    color: rgb(56, 133, 138);
+  }
+  
+  input[type="number"] {
+    width: 4rem;
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #f2f2f2;
+    text-align: center;
+  }
+  
+  label{
+    width: 280px;
+    text-align: right;
+    font-weight: bold;
+  }
+
+  form button {
+    margin-top: 1rem;
+  }
+  
+  form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  div.ant-col.ant-form-item-label.css-dev-only-do-not-override-12upa3x > label{
+    color: white;
+  }
