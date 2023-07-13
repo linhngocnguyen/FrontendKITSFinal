@@ -146,7 +146,6 @@ function App() {
       >
         <Layout>
           <Header style={headerStyle}>
-              {/* <Image src={Kits} preview={false} style={{width: 24, height: 24}}/> */}
               <Kits collapsed={collapsed}/>
               <Divider type='vertical' style={{height: 64}}/>
               <Button shape='circle' size='large' icon={<MenuOutlined />} onClick={toggleCollapsed} style={{marginLeft: '1em'}}>
