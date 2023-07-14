@@ -88,7 +88,8 @@ function ZodiacApp() {
   };
 
   return (
-    <div style={{ padding: "24px" }}>
+    <div style={{textAlign: 'left', marginLeft: 50, marginTop: 20}}>
+    <Space direction='vertical'>
       <Typography.Title level={2}>Zodiac App</Typography.Title>
       <Form
         name="zodiac-form"
@@ -136,16 +137,17 @@ function ZodiacApp() {
       </Form>
       <Space direction="vertical">
         {westernZodiac && (
-            <Text>
+            <Text style={{fontSize: 25}}>
             Your Western zodiac sign is <strong>{westernZodiac}</strong>.
             </Text>
         )}
         {chineseZodiac && (
-            <Text>
+            <Text style={{fontSize: 25}}>
             Your Chinese zodiac sign is <strong>{chineseZodiac}</strong>.
             </Text>
         )}
      </Space>
+    </Space>
     </div>
   );
 }

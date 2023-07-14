@@ -97,10 +97,11 @@ function Pomodoro() {
   const buttonMode = `buttons ${isBreak ? 'break1' : 'work1'}`;
   return (
     <Layout className={backgroundMode}>
-      <Header style={{background: 'transparent', marginTop: 20}}>
-        <Title level={2} style={{color: 'white'}}>Pomodoro Clock</Title>
+      <Header style={{background: 'transparent', marginTop: 5}}>
       </Header>
-      <Content>
+      <Content style={{marginTop: 0, height: 500}}>
+        <Space direction='vertical' style={{border: '1px solid white',  boxShadow: '3px 3px #ccc'}}>
+        <Title level={2} style={{color: 'white' , marginTop: 20}}>Pomodoro Clock</Title>
         <Space direction='vertical' className='time-now' style={{ display: 'flex' }}>{now.toLocaleTimeString()}</Space>
         <Space direction='vertical' className='message' style={{ display: 'flex' }}>{isBreak ? 'Break time' : 'Working time'}</Space>
         <Space direction='vertical' className='timer' style={{ display: 'flex' }}>{formatTime(secondsLeft)}</Space>
@@ -154,6 +155,7 @@ function Pomodoro() {
               </Form.Item>
             </Form>
           )}
+        </Space>
         </Space>
       </Content>
    <Layout>

@@ -1,10 +1,12 @@
 .unit-converter {
-  display: flex;
   background-color: #e6f7ff;
   padding: 24px;
   border-radius: 8px;
-  height: 100%;
-  align-items: center;
+  height: 90vh;
+}
+
+.input-number-error {
+  border-color: red;
 }
 
 .title {

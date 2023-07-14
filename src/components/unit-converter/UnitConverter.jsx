@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Layout, Space, Typography, InputNumber, Select, Button } from 'antd';
+import { Layout, Space, Typography, InputNumber, Select, Button, message } from 'antd';
 import './UnitConverter.css';
 
 const { Title, Text } = Typography;
@@ -10,6 +10,7 @@ const UnitConverter = () => {
   const [fromUnit, setFromUnit] = useState('--Select an unit--');
   const [toUnit, setToUnit] = useState('--Select an unit--');
   const [unitType, setUnitType] = useState('--Select an unit--');
+  const [isValidInput, setIsValidInput] = useState(true);
 
   const convertLength = (value, from, to) => {
     const conversions = {
@@ -76,7 +77,14 @@ const UnitConverter = () => {
   };
 
   const handleInputChange = (value) => {
-    setInputValue(value)
+    const parsedValue = Number(value);
+    if (Number.isNaN(parsedValue) || parsedValue < 0) {
+      setIsValidInput(false);
+      message.error('Please enter a positive number');
+    } else {
+      setInputValue(parsedValue);
+      setIsValidInput(true);
+    }
   };
 
   const handleFromUnitChange = (value) => {
@@ -121,15 +129,24 @@ const UnitConverter = () => {
   }
 
   return (
+    <div>
     <Layout className='unit-converter'>
-      <Title level={2}>Unit Converter</Title>
-      <Space className='input-container'>
+      <Title style={{ textAlign: 'left', marginLeft: 140 }} level={2}>Unit Converter</Title>
+      <Space className='input-container' style={{marginLeft: 120 }}>
         <Text strong className='input-label'>Input value:</Text>
-        <InputNumber min={0} value={inputValue} className='input-number' onChange={handleInputChange} />
+        <InputNumber
+          value={inputValue}
+          className={`input-number${isValidInput ? '' : ' input-number-error'}`}
+          onChange={handleInputChange}
+        />
       </Space>
-      <Space className='unit-type-container'>
+      <Space className='unit-type-container' style={{marginLeft: 120 }}>
         <Text strong className='input-label'>Unit type:</Text>
-        <Select value={unitType} onChange={handleUnitTypeChange} className='unit-type-select'>
+        <Select
+          value={unitType}
+          onChange={handleUnitTypeChange}
+          className='unit-type-select'
+        >
           <Option value='--Select an unit--' disabled>--Select an unit--</Option>
           <Option value='length'>Length</Option>
           <Option value='mass'>Mass</Option>
@@ -140,22 +157,54 @@ const UnitConverter = () => {
         <>
           <Space className='unit-select-container'>
             <Text strong className='input-label'>From:</Text>
-            <Select value={fromUnit} onChange={handleFromUnitChange} className='unit-select'>
+            <Select
+              value={fromUnit}
+              onChange={handleFromUnitChange}
+              className='unit-select'
+            >
               {unitOptions.map((unit) => (
-                <Option key={unit} value={unit} disabled={unit === '--Select an unit--'}>{unit}</Option>
+                <Option
+                  key={unit}
+                  value={unit}
+                  disabled={unit === '--Select an unit--'}
+                >
+                  {unit}
+                </Option>
               ))}
             </Select>
-            <Button type='primary' onClick={handleUnitReverse} className='reverse-button'>↔</Button>
-            <Select value={toUnit} onChange={handleToUnitChange} className='unit-select'>
+            <Button
+              type='primary'
+              onClick={handleUnitReverse}
+              className='reverse-button'
+            >
+              ↔
+            </Button>
+            <Select
+              value={toUnit}
+              onChange={handleToUnitChange}
+              className='unit-select'
+            >
               {unitOptions.map((unit) => (
-                <Option key={unit} value={unit} disabled={unit === '--Select an unit--'}>{unit}</Option>
+                <Option
+                  key={unit}
+                  value={unit}
+                  disabled={unit === '--Select an unit--'}
+                >
+                  {unit}
+                </Option>
               ))}
             </Select>
           </Space>
-          <Text className='converted-value'>{convertedValue > 0 && fromUnit && toUnit ? `${convertedValue} ${toUnit}` : ''} </Text>
+          <Text className='converted-value' style={{textAlign: 'left', marginLeft: 160}}>
+            {convertedValue > 0 && fromUnit && toUnit
+              ? `${convertedValue} ${toUnit}`
+              : ''}
+          </Text>
         </>
       )}
     </Layout>
+    </div>
   );
 };
+
 export default UnitConverter;

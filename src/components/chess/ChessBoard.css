@@ -1,6 +1,4 @@
 .chess {
-    display: flex;
-    flex-direction: column;
     text-align: center;
     background-color: #EBE8E2;
     height: 100%;
@@ -10,12 +8,14 @@
   }
   .board{
     margin-top: 35px;
+    margin-left: 30px;
   }
   .input-row {
     margin: 5px;
     text-align: center;
     height: 50px;
     width: 145px;
+    margin-left: 40px;
   }
   
   .input-row > label {

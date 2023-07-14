@@ -125,7 +125,7 @@ function Calculator() {
       <Layout className='calculator'>
         <Title level={2}>Calculator</Title>
         <Display value={value} result={result} />
-        <Space className='content'>{
+        <Space className='content' style={{columnGap: 0, rowGap: 6}}>{
           buttons.map(
               (b, idx) => <Button 
                 key={idx} 

@@ -39,10 +39,10 @@ function QuoteOfTheDay() {
   }, []);
 
   return (
-    <Space direction="vertical">
-      <Title level={3}>Random Quote</Title>
+    <div style={{textAlign: 'left'}}>
+      <Title style={{textAlign: 'left', marginLeft: 60, marginTop: 20}} level={3}>Random Quote</Title>
       <Space>
-        <Text strong style={{textAlign: 'center'}}>Number of quotes: </Text>
+        <Text strong style={{textAlign: 'left', marginLeft: 30}}>Number of quotes: </Text>
         <Space>
           <Search
             label = "Number of Quotes"
@@ -68,7 +68,7 @@ function QuoteOfTheDay() {
           ))}
         </Row>
       )}
-    </Space>
+    </div>
   );
 }
 

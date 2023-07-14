@@ -54,7 +54,6 @@
   }
   button:active{
     box-shadow: 0 9px #999;
-    transform: translateY(4px);
   }
   .buttons.work1{
     color: rgb(186, 73, 73);
@@ -79,7 +78,9 @@
     text-align: right;
     font-weight: bold;
   }
-
+  div.ant-col.ant-form-item-label.css-dev-only-do-not-override-1m62vyb > label{
+    color: white;
+  }
   form button {
     margin-top: 1rem;
   }

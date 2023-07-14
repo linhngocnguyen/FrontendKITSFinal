@@ -1,5 +1,5 @@
 import { Layout, Space, Typography, Menu, Button, Calendar, Avatar, Divider} from 'antd';
-import { TableOutlined, ClockCircleOutlined, CalculatorOutlined, MenuOutlined, TransactionOutlined, RedditOutlined, BookOutlined, UserOutlined, HomeOutlined} from '@ant-design/icons';
+import { TableOutlined, ClockCircleOutlined, CalculatorOutlined, MenuOutlined, TransactionOutlined, RedditOutlined, BookOutlined, UserOutlined, HomeOutlined, MenuFoldOutlined} from '@ant-design/icons';
 import { BrowserRouter as Router, Switch, Route, Link, useLocation } from "react-router-dom";
 import { useState } from 'react';
 import ChessBoard from './components/chess/ChessBoard';
@@ -148,7 +148,7 @@ function App() {
           <Header style={headerStyle}>
               <Kits collapsed={collapsed}/>
               <Divider type='vertical' style={{height: 64}}/>
-              <Button shape='circle' size='large' icon={<MenuOutlined />} onClick={toggleCollapsed} style={{marginLeft: '1em'}}>
+              <Button shape='circle' size='large' icon={ collapsed? <MenuOutlined />: <MenuFoldOutlined />} onClick={toggleCollapsed} style={{marginLeft: '1em'}}>
               </Button>
             <Title level={3} style={{margin: 'auto'}}>Demo App using AntDesign</Title>
             <Space>
